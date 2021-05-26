@@ -18,7 +18,7 @@ request = () => {
     if (urlInput.value == "") return;
   submitButton.disabled = true;
   submitButton.value = "Loading...";
-  url = "http://api.qrserver.com/v1/create-qr-code/?data=";
+  url = "https://api.qrserver.com/v1/create-qr-code/?data=";
   url += urlInput.value;
   url += "&size=" + sizeInput.value + "x" + sizeInput.value;
   url += "&format=" + formatInput.value;
