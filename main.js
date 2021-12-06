@@ -2,7 +2,7 @@ let urlInput = document.getElementById("url");
 let sizeInput = document.getElementById("size");
 let formatInput = document.getElementById("format");
 let submitButton = document.getElementById("submit");
-let imgContainer = document.getElementById("imgContainer");
+let img = document.getElementById("img");
 
 for (let i = 1; i <= 20; i++) {
   option = document.createElement("OPTION");
@@ -14,8 +14,9 @@ for (let i = 1; i <= 20; i++) {
 
 sizeInput.value = 120;
 
-request = () => {
-    if (urlInput.value == "") return;
+request = (event) => {
+  event.preventDefault();
+  if (urlInput.value == "") return;
   submitButton.disabled = true;
   submitButton.value = "Loading...";
   url = "https://api.qrserver.com/v1/create-qr-code/?data=";
@@ -25,11 +26,7 @@ request = () => {
   fetch(url)
     .then((response) => response.blob())
     .then((image) => {
-      img = document.createElement("img");
       img.src = URL.createObjectURL(image);
-      while (imgContainer.hasChildNodes())
-        imgContainer.removeChild(imgContainer.firstChild);
-      imgContainer.appendChild(img);
     })
     .catch((e) => console.log(e));
   submitButton.disabled = false;

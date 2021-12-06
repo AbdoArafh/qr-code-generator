@@ -4,34 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <title>QR Code</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <input class="form-control" type="text" id="url" placeholder="URL or DATA">
-            </div>
+    <form>
+        <input type="text" id="url" placeholder="URL or DATA">
+        <div class="selects">
+            <select id="size"></select>
+            <select value="png" id="format">
+                <option value="svg">SVG</option>
+                <option value="png">PNG</option>
+                <option value="jpeg">JPEG</option>
+                <option value="jpg">JPG</option>
+                <option value="gif">GIF</option>
+            </select>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <select class="form-select" id="size"></select>
-            </div>
-            <div class="col-4">
-                <select class="form-select" value="png" id="format">
-                    <option value="png">PNG</option>
-                    <option value="svg">SVG</option>
-                    <option value="jpeg">JPEG</option>
-                    <option value="jpg">JPG</option>
-                    <option value="gif">GIF</option>
-                </select>
-            </div>
-            <input class="btn-primary btn col-4" type="button" value="Genarate" id="submit">
-        </div>
-        <div class="row">
-            <div id="imgContainer"></div>
-        </div>
+        <input type="submit" value="Genarate" id="submit">
+        <img id="img">
+    </form>
+    <div class="imgContainer">
     </div>
     <script src="main.js"></script>
 </body>
